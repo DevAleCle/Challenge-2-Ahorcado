@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Encriptador</title>
+
+        <!-- Hojas de Estilo -->
+        <link rel="stylesheet" href="css/styles.css" />
+
+        <!-- Fuentes -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <main>
+            <header class="container">
+                <div class="logo">
+                    <img
+                        class="logo-alura"
+                        src="img/Logo.png"
+                        alt="Logo Alura Latam"
+                    />
+                </div>
+            </header>
+
+            <section class="container section-content">
+                <div class="states-container">
+                    <!-- Menu Principal -->
+                    <div id="first-state" class="game-state">
+                        <div class="btns-column">
+                            <button
+                                id="btn-startGame"
+                                class="btn btn-highlight btn-primary"
+                            >
+                                Iniciar Juego
+                            </button>
+                            <button
+                                id="btn-addWord"
+                                class="btn btn-normal btn-secondary"
+                            >
+                                Agregar nueva palabra
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Agregar Palabra -->
+                    <div id="second-state" class="game-state">
+                        <div
+                            id="invalid-word-container"
+                            class="align-left_container invisible"
+                        >
+                            <p
+                                id="invalid-word-advice"
+                                class="invalid-word-advice"
+                            ></p>
+                        </div>
+                        <textarea
+                            id="add-word"
+                            class="text-input"
+                            rows="15"
+                            cols="30"
+                            placeholder="Ingrese una palabra"
+                        ></textarea>
+
+                        <div class="align-left_container">
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                class="text-warning"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842855 5.87827 0 8 0C10.1217 0 12.1566 0.842855 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8ZM8 4C7.87361 4.00007 7.74863 4.02662 7.63312 4.07793C7.51761 4.12924 7.41413 4.20418 7.32934 4.29791C7.24456 4.39165 7.18035 4.5021 7.14084 4.62217C7.10134 4.74223 7.08743 4.86923 7.1 4.995L7.45 8.502C7.46176 8.63977 7.5248 8.76811 7.62664 8.86164C7.72849 8.95516 7.86173 9.00705 8 9.00705C8.13827 9.00705 8.27151 8.95516 8.37336 8.86164C8.4752 8.76811 8.53824 8.63977 8.55 8.502L8.9 4.995C8.91257 4.86923 8.89866 4.74223 8.85915 4.62217C8.81965 4.5021 8.75544 4.39165 8.67066 4.29791C8.58587 4.20418 8.48239 4.12924 8.36688 4.07793C8.25137 4.02662 8.12639 4.00007 8 4ZM8.002 10C7.73678 10 7.48243 10.1054 7.29489 10.2929C7.10736 10.4804 7.002 10.7348 7.002 11C7.002 11.2652 7.10736 11.5196 7.29489 11.7071C7.48243 11.8946 7.73678 12 8.002 12C8.26722 12 8.52157 11.8946 8.70911 11.7071C8.89664 11.5196 9.002 11.2652 9.002 11C9.002 10.7348 8.89664 10.4804 8.70911 10.2929C8.52157 10.1054 8.26722 10 8.002 10Z"
+                                    fill="#495057"
+                                />
+                            </svg>
+                            <p class="text-info">
+                                La palabra no debe contener mas de 8 letras ni
+                                números ni caracteres especiales.
+                            </p>
+                        </div>
+
+                        <div class="btns-row">
+                            <button id="btn-saveWord" class="btn btn-highlight">
+                                Guardar y empezar
+                            </button>
+                            <button id="btn-backHome" class="btn btn-normal">
+                                Cancelar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Juego -->
+                    <div id="third-state" class="game-state">
+                        <p id="win-lose-advice" class="win-lose-advice"></p>
+                        <div class="horca">
+                            <div class="horca-palo1"></div>
+                            <div class="horca-palo2"></div>
+                            <div class="horca-palo3"></div>
+                            <div class="horca-palo4"></div>
+
+                            <div
+                                id="horca-cuerpo1"
+                                class="horca-cuerpo1 invisible"
+                            ></div>
+                            <div
+                                id="horca-cuerpo2"
+                                class="horca-cuerpo2 invisible"
+                            ></div>
+                            <div
+                                id="horca-cuerpo3"
+                                class="horca-cuerpo3 invisible"
+                            ></div>
+                            <div
+                                id="horca-cuerpo4"
+                                class="horca-cuerpo4 invisible"
+                            ></div>
+                            <div
+                                id="horca-cuerpo5"
+                                class="horca-cuerpo5 invisible"
+                            ></div>
+                            <div
+                                id="horca-cuerpo6"
+                                class="horca-cuerpo6 invisible"
+                            ></div>
+                        </div>
+
+                        <div class="align-center_container">
+                            <div
+                                id="palabra-secreta"
+                                class="container-palabra-secreta"
+                            ></div>
+
+                            <div
+                                id="letras-erroneas"
+                                class="container-letras-erroneas"
+                            ></div>
+                        </div>
+
+                        <div class="btns-row">
+                            <button id="btn-newGame" class="btn btn-highlight">
+                                Nuevo juego
+                            </button>
+                            <button id="btn-desist" class="btn btn-normal">
+                                Desistir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p class="copyright">
+                Hecho por Alejo Clerico para el Challenge #2 del curso de Alura
+                Latam.
+            </p>
+        </footer>
+
+        <script src="./js/states-manager.js"></script>
+        <script src="./js/words-manager.js"></script>
+        <script src="./js/game.js"></script>
+    </body>
+</html>
